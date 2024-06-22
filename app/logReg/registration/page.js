@@ -94,7 +94,8 @@ error?console.log(error):console.log("success");
             <input
              type="submit"
              value={"Sign Up"}
-              className="btn btn-outline btn-neutral px-16 font-bold rounded-3xl"
+              className="btn btn-outline btn-neutraly
+               px-16 font-bold rounded-3xl"
             />
               
           </div>
