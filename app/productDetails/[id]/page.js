@@ -103,7 +103,7 @@ export default function ProductDetails({ params }) {
     },
   ];
 
-  const item = data.find((element) => element.id == params.id);
+  const item = data.find((element) => element?.id == params?.id);
   return (
     
     <div className="flex  m-10 gap-5 bg-white p-10 ">

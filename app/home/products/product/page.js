@@ -1,5 +1,4 @@
 "use client";
-import OrderDetails from "../../../details/page";
 import Image from "next/image";
 import React from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
