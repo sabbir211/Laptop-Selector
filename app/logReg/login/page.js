@@ -1,8 +1,9 @@
+"use client"
 import React from "react";
 import { RiFacebookCircleLine } from "react-icons/ri";
 import { MdEmail } from "react-icons/md";
 import { FaGoogle, FaGithub, FaKey } from "react-icons/fa";
-import Link from "next/link";
+
 import { useForm } from "react-hook-form";
 import auth from "@/firebase.init";
 import { useSignInWithEmailAndPassword } from "react-firebase-hooks/auth";

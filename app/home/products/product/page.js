@@ -5,9 +5,14 @@ import { useAuthState } from "react-firebase-hooks/auth";
 import { useRouter } from 'next/navigation'
 import auth from "@/firebase.init";
 export default function Product({ data }) {
-  let { id, img, name, display, ram, processor } = data;
+ 
   const [user, loading, error] = useAuthState(auth);
  const r=useRouter();
+ if (!data) {
+  return <div>Loading...</div>; // Or any loading/error message you prefer
+}
+let { id, img, name, display, ram, processor } = data;
+
   function seeClick() {
   
     if (user) {

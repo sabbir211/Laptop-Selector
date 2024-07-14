@@ -108,31 +108,35 @@ export default function ProductDetails({ params }) {
     
     <div className="flex  m-10 gap-5 bg-white p-10 ">
       <div className=" ">
-        <Image src={item?.img} width={500} height={500}></Image>
+        <Image src={item?.img} width={500} height={500} alt="laptop image"></Image>
         <div className="flex m-4 gap-6">
           <Image
             className="hover:blur-sm hover:cursor-pointer"
             src={item?.img}
             width={100}
             height={100}
+            alt="laptop image"
           ></Image>
           <Image
             className="hover:blur-sm hover:cursor-pointer"
             src={item?.img}
             width={100}
             height={100}
+            alt="laptop image"
           ></Image>
           <Image
             className="hover:blur-sm hover:cursor-pointer"
             src={item?.img}
             width={100}
             height={100}
+            alt="laptop image"
           ></Image>
           <Image
             className="hover:blur-sm hover:cursor-pointer"
             src={item?.img}
             width={100}
             height={100}
+            alt="laptop image"
           ></Image>
         </div>
       </div>

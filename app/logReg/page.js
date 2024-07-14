@@ -17,7 +17,7 @@ export default function LogReg() {
         <div className=" bg-white rounded-2xl shadow-2xl flex w-2/3 ">
           <div className="w-3/5 p-5">
             <h4 className="text-left text-green-500 text-lg font-bold">
-              <Image src={logo} width={150}></Image>
+              <Image src={logo} width={150} alt="logReg image"></Image>
             </h4>
             {/* <Login></Login> */}
 

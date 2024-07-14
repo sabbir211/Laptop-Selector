@@ -9,10 +9,6 @@
     "lint": "next lint"
     
   },
-  "scripts": {
-  "build": "echo 'react-hook-form version:' $(npm list react-hook-form) && next build"
-}
-,
   "dependencies": {
     "firebase": "^10.10.0",
     "next": "^14.2.4",
