@@ -7,20 +7,33 @@ import { FaGoogle, FaGithub, FaKey } from "react-icons/fa";
 import { useForm } from "react-hook-form";
 import auth from "@/firebase.init";
 import { useSignInWithEmailAndPassword } from "react-firebase-hooks/auth";
+import { useRouter } from 'next/navigation'
+
+
 export default function Login() {
   const { register, handleSubmit } = useForm();
+  const router = useRouter();
+  
   const [
     signInWithEmailAndPassword,
     user,
     loading,
     error,
 ] = useSignInWithEmailAndPassword(auth);
-  const onSubmit = async (data, event) => {
-    event.preventDefault();
-    await signInWithEmailAndPassword(data.email, data.password)
-    console.log(data);
-  };
-
+const onSubmit = async (data, event) => {
+  event.preventDefault();
+  try {
+    await signInWithEmailAndPassword(data.email, data.password);
+    router.push('/'); // Redirect to home page on successful sign-in
+  } catch (error) {
+    console.error('Error signing in:', error);
+  }
+};
+// useEffect(() => {
+//   if (user) {
+//     router.push('/'); // Redirect to home page if user is authenticated
+//   }
+// }, [user, router]);
   return (
     <div>
       <div className="py-5 px-8 my-10">

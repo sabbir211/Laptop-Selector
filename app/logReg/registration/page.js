@@ -8,9 +8,11 @@ import { MdEmail } from "react-icons/md";
 import { RiFacebookCircleLine } from "react-icons/ri";
 import { useAuthState, useCreateUserWithEmailAndPassword, useUpdateProfile } from 'react-firebase-hooks/auth';
 import auth from "@/firebase.init";
-// import FrontPage from "../../Home/page";
+import { useRouter } from 'next/navigation'
+
 export default function Registration() {
   const { register, handleSubmit } = useForm();
+  const router=useRouter()
   const [
     createUserWithEmailAndPassword,
     user,
@@ -20,12 +22,14 @@ export default function Registration() {
   const onSubmit =async (data,event) =>{
     event.preventDefault();
     await createUserWithEmailAndPassword(data.email, data.password)
+    router.push('/')
     console.log(data);
   }
   if (loading) {
     return <span className="loading loading-spinner loading-lg"></span>
 
 }
+
 
 error?console.log(error):console.log("success");
   return (

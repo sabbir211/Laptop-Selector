@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import React from "react";
 export default function ProductDetails({ params }) {
   let data = [
@@ -157,7 +158,7 @@ export default function ProductDetails({ params }) {
           <p className="">RAM: {item?.ram}</p>
           <p className="">Keyboard: {item?.keyboard}</p>
         </div>
-        <button className="btn btn-outline px-7 my-9"> BUY NOW</button>
+        <Link href="/buypage" className="btn btn-outline px-7 my-9"> BUY NOW</Link>
       </div>
     </div>
   );

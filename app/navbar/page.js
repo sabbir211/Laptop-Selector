@@ -1,9 +1,21 @@
+"use client";
+
 import React from "react";
 import logo from "../resources/web5.png";
 import Image from "next/image";
 import Link from "next/link";
-import Banner from "../home/banner/page";
+import userDummyImage from "../resources/userAlt.webp";
+import { useAuthState } from "react-firebase-hooks/auth";
+import auth from "@/firebase.init";
+import { signOut } from "firebase/auth";
 export default function Navbar() {
+  const [user, loading, error ]= useAuthState(auth);
+  if (loading) {
+    return <p className="absolute top-50 bottom-40">loading....</p>;
+  }
+  if (error) {
+    console.log(error);
+  }
   return (
     <div className="">
       <div className="drawer ">
@@ -103,11 +115,13 @@ export default function Navbar() {
                   role="button"
                   className="btn btn-ghost btn-circle avatar"
                 >
-                  <div className="w-10 rounded-full">
-                    <img
+                  <div className="w-10 rounded-full text-center">
+                    {/* <img
                       alt="Tailwind CSS Navbar component"
                       src="https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg"
-                    />
+                    /> */}
+                    <Image src={userDummyImage} alt="User image"></Image>
+                    {/* <FaUser className="text-center text-2xl  "> </FaUser> */}
                   </div>
                 </div>
                 <ul
@@ -124,7 +138,13 @@ export default function Navbar() {
                     <a>Settings</a>
                   </li>
                   <li>
-                    <a>Logout</a>
+                    {user ? (
+                      <a onClick={() => signOut(auth)}>Logout</a>
+                    ) : (
+                      <>
+                        <Link href="/logReg"> Sign in </Link>
+                      </>
+                    )}
                   </li>
                 </ul>
               </div>
@@ -143,25 +163,25 @@ export default function Navbar() {
           <ul className="menu p-4 w-80 min-h-full bg-white">
             {/* Sidebar content here */}
             <Image src={logo} className="w-48" alt="logo"></Image>
-            
+
             <ul className="menu menu-horizontal text-xl grid grid-cols-1">
-                {/* Navbar menu content here */}
-                <li>
-                  <Link href={"/"}>Home</Link>
-                </li>
-                <li>
-                  <Link href={"/"}>Services</Link>
-                </li>
-                <li>
-                  <Link href={"/"}>Laptops</Link>
-                </li>
-                <li>
-                  <Link href={"/"}>Offers</Link>
-                </li>
-                <li>
-                  <Link href={"/"}>Hot Deals</Link>
-                </li>
-              </ul>
+              {/* Navbar menu content here */}
+              <li>
+                <Link href={"/"}>Home</Link>
+              </li>
+              <li>
+                <Link href={"/"}>Services</Link>
+              </li>
+              <li>
+                <Link href={"/"}>Laptops</Link>
+              </li>
+              <li>
+                <Link href={"/"}>Offers</Link>
+              </li>
+              <li>
+                <Link href={"/"}>Hot Deals</Link>
+              </li>
+            </ul>
           </ul>
         </div>
       </div>
